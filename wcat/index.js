@@ -100,6 +100,14 @@ for (let file of filename) {
             }
             fileData = temp;
         }
+
+        // append -> this helps us to append the 2nd file at back of the first file
+        else if (flag == "-append") {
+            let file1Data = fileData;
+            let file2Data = fs.readFileSync(path.resolve(__dirname,filename[1]) , "utf-8");;
+            fileData = file1Data + file2Data;
+            flag.remove;
+        }
     }
     console.log(fileData);
 }
